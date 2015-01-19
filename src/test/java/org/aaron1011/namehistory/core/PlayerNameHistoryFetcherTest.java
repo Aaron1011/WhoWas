@@ -25,7 +25,11 @@ public class PlayerNameHistoryFetcherTest {
 
     @Test
     public void testGetPlayerNameHistory() throws Exception {
-        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(PlayerNameHistoryFetcher.fromFlatString("3e50893f4903402fb3b810158c6ed75b"));
+        //mockStatic(PlayerNameHistoryFetcher.class);
+        stub(method(PlayerNameHistoryFetcher.class, "getAPIResponse")).toReturn(new ByteArrayInputStream(API_DATA.getBytes()));
+        //doReturn(new ByteArrayInputStream(API_DATA.getBytes())).when(PlayerNameHistoryFetcher.);
+
+        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(UUID.randomUUID());
         System.out.println("Got history");
         System.out.println(history);
         /*URL url = mock(URL.class);

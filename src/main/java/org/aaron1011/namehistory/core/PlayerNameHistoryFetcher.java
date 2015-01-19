@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -29,10 +30,20 @@ public class PlayerNameHistoryFetcher {
     }
 
     public static PlayerNameHistory getPlayerNameHistory(UUID uuid) throws MalformedURLException, IOException {
-        URLConnection connection = new URL(API_ROOT + String.format(API_BASE_URL, uuid.toString().replace("-", ""))).openConnection();
 
-        TimestampedName[] names = gson.fromJson(new InputStreamReader(connection.getInputStream()), TimestampedName[].class);
+        InputStream inputStream = getAPIResponse(uuid);
+
+        TimestampedName[] names = gson.fromJson(new InputStreamReader(inputStream), TimestampedName[].class);
         return new PlayerNameHistory(uuid, Arrays.asList(names));
+    }
+
+    private static InputStream getAPIResponse(UUID uuid) throws MalformedURLException, IOException {
+        URLConnection connection = new URL(API_ROOT + String.format(API_BASE_URL, toFlatString(uuid))).openConnection();
+        return connection.getInputStream();
+    }
+
+    public static String toFlatString(UUID uuid) {
+        return uuid.toString().replace("-", "");
     }
 
     public static UUID fromFlatString(String str) {
