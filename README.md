@@ -1,4 +1,4 @@
-# NameHistory
+# NameHistory [![Build Status](https://travis-ci.org/Aaron1011/NameHistory.svg?branch=master)](https://travis-ci.org/Aaron1011/NameHistory)
 
 With Minecraft name change support now on the horizon, many users will be facing a problem:
 
