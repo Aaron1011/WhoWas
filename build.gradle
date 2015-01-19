@@ -11,6 +11,7 @@ targetCompatibility = '1.7'
 
 repositories {
     mavenCentral()
+    jcenter()
     maven {
         name 'Sponge maven repo'
         url 'http://repo.spongepowered.org/maven'
@@ -19,5 +20,9 @@ repositories {
 
 dependencies {
     compile "org.spongepowered:spongeapi:1.0"
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile "com.google.code.gson:gson:2.3.1"
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-core:1.+"
+    testCompile "org.powermock:powermock-module-junit4:1.6.1"
+    testCompile "org.powermock:powermock-api-mockito:1.6.1"
 }

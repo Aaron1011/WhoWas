@@ -33,4 +33,12 @@ public class PlayerNameHistory {
         this.uuid = uuid;
         this.names = names;
     }
+
+    @Override
+    public String toString() {
+        return "PlayerNameHistory{" +
+                "uuid=" + uuid +
+                ", names=" + names +
+                '}';
+    }
 }
