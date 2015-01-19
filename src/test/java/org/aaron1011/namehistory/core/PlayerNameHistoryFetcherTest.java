@@ -25,34 +25,10 @@ public class PlayerNameHistoryFetcherTest {
 
     @Test
     public void testGetPlayerNameHistory() throws Exception {
-        //mockStatic(PlayerNameHistoryFetcher.class);
         stub(method(PlayerNameHistoryFetcher.class, "getAPIResponse")).toReturn(new ByteArrayInputStream(API_DATA.getBytes()));
-        //doReturn(new ByteArrayInputStream(API_DATA.getBytes())).when(PlayerNameHistoryFetcher.);
 
         PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(UUID.randomUUID());
         System.out.println("Got history");
         System.out.println(history);
-        /*URL url = mock(URL.class);
-        URLConnection urlConnectionMock = mock(URLConnection.class);
-
-        when(url.openConnection()).thenReturn(urlConnectionMock);
-
-        URLConnection openConnection = url.openConnection();
-
-        assertSame(openConnection, urlConnectionMock);*/
-        /*mockStatic(URL.class);
-
-        URLConnection urlConnectionMock = PowerMockito.mock(URLConnection.class);
-
-        when(URL.openConnection).thenReturn(urlConnectionMock);
-        PowerMockito.when(urlConnectionMock.getInputStream()).thenReturn(new ByteArrayInputStream(API_DATA.getBytes()));
-
-        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(UUID.fromString("3e50893f4903402fb3b810158c6ed75b"));
-        assertEquals(history.getUuid(), "3e50893f4903402fb3b810158c6ed75b");
-
-        TimestampedName[] names = { new TimestampedName("Djinnibone", null), new TimestampedName("Djinnibutt", new Date(1413217187000L)),
-                new TimestampedName("Djinnibone", new Date(1413217202000L)) };
-
-        assertEquals(history.getNames(), names);*/
     }
 }
