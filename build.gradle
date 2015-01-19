@@ -6,8 +6,8 @@ plugins {
 
 defaultTasks 'build'
 
-sourceCompatibility = '1.6'
-targetCompatibility = '1.6'
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
 repositories {
     mavenCentral()
@@ -19,4 +19,5 @@ repositories {
 
 dependencies {
     compile "org.spongepowered:spongeapi:1.0"
+    compile 'com.google.code.gson:gson:2.3.1'
 }

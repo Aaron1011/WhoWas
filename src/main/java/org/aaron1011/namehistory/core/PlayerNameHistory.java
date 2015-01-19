@@ -7,7 +7,7 @@ public class PlayerNameHistory {
 
     private UUID uuid;
 
-    private List<String> names;
+    private List<TimestampedName> names;
 
     public UUID getUuid() {
         return uuid;
@@ -17,16 +17,19 @@ public class PlayerNameHistory {
         this.uuid = uuid;
     }
 
-    public List<String> getNames() {
+    public List<TimestampedName> getNames() {
         return names;
     }
 
-    public void setNames(List<String> names) {
+    public void setNames(List<TimestampedName> names) {
         this.names = names;
     }
 
-    public PlayerNameHistory(UUID uuid, List<String> names) {
+    public PlayerNameHistory(List<TimestampedName> names) {
+        this.names = names;
+    }
 
+    public PlayerNameHistory(UUID uuid, List<TimestampedName> names) {
         this.uuid = uuid;
         this.names = names;
     }
