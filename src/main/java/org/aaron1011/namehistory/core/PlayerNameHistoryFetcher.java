@@ -13,13 +13,15 @@ import java.util.UUID;
 
 public class PlayerNameHistoryFetcher {
 
-    public static final String API_ROOT = "https://api.mojang.com";
-    public static final String API_BASE_URL = "/user/profiles/%s/names";
+    private static final String API_ROOT = "https://api.mojang.com";
+    private static final String API_BASE_URL = "/user/profiles/%s/names";
+    private static final GsonBuilder builder = new GsonBuilder();
+
+    static {
+        builder.registerTypeAdapter(PlayerNameHistory[].class, new PlayerNameHistoryDeserializer());
+    }
 
     public static PlayerNameHistory getPlayerNameHistory(UUID uuid) throws MalformedURLException, IOException {
-        GsonBuilder builder = new GsonBuilder();
-        builder.registerTypeAdapter(PlayerNameHistory[].class, new PlayerNameHistoryDeserializer());
-
         HttpsURLConnection connection = (HttpsURLConnection) new URL(API_ROOT + String.format(API_BASE_URL, uuid.toString().replace("-", ""))).openConnection();
 
         return builder.create().fromJson(new InputStreamReader(connection.getInputStream()), PlayerNameHistory.class);
