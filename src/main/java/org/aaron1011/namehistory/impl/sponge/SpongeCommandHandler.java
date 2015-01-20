@@ -42,7 +42,7 @@ public class SpongeCommandHandler implements CommandCallable {
             } else {
                 PlayerNameHistory history;
                 try {
-                    history = PlayerNameHistoryFetcher.getPlayerNameHistory(player.get().getUniqueId())
+                    history = PlayerNameHistoryFetcher.getPlayerNameHistory(player.get().getUniqueId());
                 } catch (IOException e) {
                     source.sendMessage("Error fetching player name history: " + e.getMessage());
                     return true;
