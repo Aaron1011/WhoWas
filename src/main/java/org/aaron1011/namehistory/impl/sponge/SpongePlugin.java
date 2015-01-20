@@ -21,6 +21,6 @@ public class SpongePlugin {
         List<String> aliases = new ArrayList<String>();
         aliases.add("nameHistory");
         aliases.add("nm");
-        event.getGame().getCommandDispatcher().register(this, new SpongeCommandHandler(), aliases); 
+        event.getGame().getCommandDispatcher().register(this, new SpongeCommandHandler(event.getGame()), aliases);
     }
 }

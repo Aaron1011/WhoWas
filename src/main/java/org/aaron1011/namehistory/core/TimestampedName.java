@@ -25,4 +25,20 @@ public class TimestampedName {
                 '}';
     }
 
+    public Date getChangedToAt() {
+        return changedToAt;
+    }
+
+    public void setChangedToAt(Date changedToAt) {
+        this.changedToAt = changedToAt;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
