@@ -1,4 +1,4 @@
-package org.aaron1011.namehistory.core;
+package org.aaron1011.whowas.core;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;

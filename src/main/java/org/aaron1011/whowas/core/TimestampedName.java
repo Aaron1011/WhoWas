@@ -1,6 +1,5 @@
-package org.aaron1011.namehistory.core;
+package org.aaron1011.whowas.core;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class TimestampedName {

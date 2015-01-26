@@ -1,19 +1,12 @@
-package org.aaron1011.namehistory.core;
+package org.aaron1011.whowas.core;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.ByteArrayInputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.Date;
 import java.util.UUID;
-
-import static org.junit.Assert.*;
 
 import static org.powermock.api.mockito.PowerMockito.*;
 
