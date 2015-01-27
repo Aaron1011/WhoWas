@@ -49,8 +49,14 @@ public class SpongeCommandHandler implements CommandCallable {
                 };
                 source.sendMessage(Messages.builder("Name history:").color(TextColors.BLUE).build());
                 for (TimestampedName name: history.getNames()) {
-                    Message message = Messages.builder(name.getName() + ": ").build();
-                    message.getChildren().add(Messages.builder("Changed to at " + name.getChangedToAt().toString()).color(TextColors.GREEN).build());
+                    MessageBuilder builder = Messages.builder(name.getName() + ": ");
+                    if (name.getChangedToAt().isPresent()) {
+                        builder.append(Messages.builder("Changed to at " + name.getChangedToAt().get().toString()).color(TextColors.GREEN).build());
+                    } else {
+                        builder.append(Messages.builder("In use").color(TextColors.GOLD).build());
+                    }
+
+                    Message message = builder.build();
                     source.sendMessage(message);
                 }
             }
