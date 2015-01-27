@@ -1,19 +1,26 @@
 package org.aaron1011.whowas.core;
 
+import com.google.common.base.Optional;
+
 import java.util.Date;
 
 public class TimestampedName {
 
     private String name;
 
-    private Date changedToAt;
+    private Optional<Date> changedToAt;
 
     public TimestampedName() {
     }
 
-    public TimestampedName(String name, Date changedToAt) {
+    public TimestampedName(String name, Optional<Date> changedToAt) {
         this.name = name;
         this.changedToAt = changedToAt;
+    }
+
+    public TimestampedName(String name, Date changedToAt) {
+        this.name = name;
+        this.changedToAt = Optional.fromNullable(changedToAt);
     }
 
     @Override
@@ -24,12 +31,12 @@ public class TimestampedName {
                 '}';
     }
 
-    public Date getChangedToAt() {
+    public Optional<Date> getChangedToAt() {
         return changedToAt;
     }
 
     public void setChangedToAt(Date changedToAt) {
-        this.changedToAt = changedToAt;
+        this.changedToAt = Optional.fromNullable(changedToAt);
     }
 
     public String getName() {

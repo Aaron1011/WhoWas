@@ -1,5 +1,7 @@
 package org.aaron1011.whowas.core;
 
+import com.google.common.base.Optional;
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -21,8 +23,10 @@ public class PlayerNameHistoryFetcher {
 
     static {
         GsonBuilder builder = new GsonBuilder();
-        //builder.registerTypeAdapter(PlayerNameHistory[].class, new PlayerNameHistoryDeserializer());
-        builder.registerTypeAdapter(Date.class, new DateDeserializer());
+        builder.registerTypeAdapter(TimestampedName.class, new TimestampedNameDeserializer());
+        //builder.registerTypeAdapter(new TypeToken<Optional<Date>>(){}.getType(), new DateDeserializer());
+        //builder.registerTypeAdapter(Date.class, new DateDeserializer());
+        //builder.registerTypeAdapterFactory(OptionalTypeAdapter.FACTORY);
         gson = builder.create();
     }
 
