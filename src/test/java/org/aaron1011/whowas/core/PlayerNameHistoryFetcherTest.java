@@ -2,6 +2,7 @@ package org.aaron1011.whowas.core;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -20,8 +21,9 @@ public class PlayerNameHistoryFetcherTest {
     public void testGetPlayerNameHistory() throws Exception {
         stub(method(PlayerNameHistoryFetcher.class, "getAPIResponse")).toReturn(new ByteArrayInputStream(API_DATA.getBytes()));
 
-        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(UUID.randomUUID());
-        System.out.println("Got history");
-        System.out.println(history);
+        UUID uuid = UUID.randomUUID();
+
+        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(uuid);
+        assertEquals("UUIDS are not equal", uuid, history.getUuid());
     }
 }
