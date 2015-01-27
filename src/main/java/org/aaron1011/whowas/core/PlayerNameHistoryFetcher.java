@@ -24,9 +24,6 @@ public class PlayerNameHistoryFetcher {
     static {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(TimestampedName.class, new TimestampedNameDeserializer());
-        //builder.registerTypeAdapter(new TypeToken<Optional<Date>>(){}.getType(), new DateDeserializer());
-        //builder.registerTypeAdapter(Date.class, new DateDeserializer());
-        //builder.registerTypeAdapterFactory(OptionalTypeAdapter.FACTORY);
         gson = builder.create();
     }
 
