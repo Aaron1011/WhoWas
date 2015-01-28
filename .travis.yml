@@ -1,7 +1,9 @@
 language: java
+script: mvn clean package
+install: sudo pip install dropbox
 
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk7
-  - openjdk6
+env:
+  global:
+  - secure: "QTZS5gMMIGZl5HU9QwxMxcg8IXwTsOzVKVkJwmsfLZ1EesBPDYXow4N8WKyi7doCQrpp1MATRTjptLV0vWi/wdUyKkkY8lab+Za4ZoE1uABZkyAFV9TzVbe2wvhrhSuBoUrR4QDeCAXI6uM1gR451+PYs+Vh7eygQKjm35jUT8o="
+ 
+after_success: if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then echo "Uploading...";python upload_artifact.py; fi
