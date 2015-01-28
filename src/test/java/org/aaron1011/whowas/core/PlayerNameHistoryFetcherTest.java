@@ -26,7 +26,7 @@ public class PlayerNameHistoryFetcherTest {
 
         UUID uuid = UUID.randomUUID();
 
-        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(uuid);
+        PlayerNameHistory history = PlayerNameHistoryFetcher.getPlayerNameHistory(uuid).get();
         List<TimestampedName> names = history.getNames();
 
         assertEquals("UUIDS are not equal", uuid, history.getUuid());
