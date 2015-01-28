@@ -22,6 +22,10 @@ repositories {
         url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
     }
 
+    maven {
+        url "http://repo.mcstats.org/content/repositories/public"
+    }
+
 }
 
 shadowJar {
@@ -35,6 +39,7 @@ dependencies {
     compile group: 'org.bukkit', name: 'bukkit', version: '1.8-R0.1-SNAPSHOT'
     compile "com.google.code.gson:gson:2.3.1"
     compile "com.google.guava:guava:18.0"
+    compile "org.mcstats.bukkit:metrics:R8-SNAPSHOT"
 
     testCompile "junit:junit:4.12"
     testCompile "org.mockito:mockito-core:1.+"
