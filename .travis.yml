@@ -1,6 +1,11 @@
 language: java
-script: mvn clean package
 install: sudo pip install dropbox
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+  - openjdk6
 
 env:
   global:
