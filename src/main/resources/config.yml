@@ -1,0 +1,3 @@
+update:
+  checkForUpdates: true
+  autoInstallUpdates: true
