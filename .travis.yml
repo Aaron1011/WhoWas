@@ -1,6 +1,5 @@
 language: java
-sudo: false
-install: pip install dropbox
+install: sudo pip install dropbox
 
 jdk:
   - oraclejdk8
