@@ -1,5 +1,6 @@
 language: java
 install: sudo pip install dropbox
+script: ./gradlew
 
 jdk:
   - oraclejdk8
@@ -11,4 +12,4 @@ env:
   global:
   - secure: "XjjaV6eGeHMyvRsOGOsSgN5ycJLUtC/51KGAnqmq55I2Y8p5NzeXnHEiblLPwqzReNYuhDvcikbJbEepknniJciYlf8Wa3jmmz9clKkiTDMZlwHEuPCQn1241jA0yLsY79Od3FXRe09kT9iI6zgVWbVWEDpwOiw2i5iNJg+rzGI="
  
-after_success: if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then echo "Uploading...";python upload_artifact.py; fi
+after_success: if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_JDK_VERSION" == "openjdk7" ]]; then echo "Uploading...";python upload_artifact.py; fi
