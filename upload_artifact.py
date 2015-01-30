@@ -2,6 +2,7 @@ from os import environ as env
 from glob import glob
 
 import datetime
+import dropbox
 
 FILENAME = 'build/libs/WhoWas.jar'
 
