@@ -11,6 +11,9 @@ public class BukkitPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        this.saveDefaultConfig();
+
         try {
             Metrics metrics = new Metrics(this);
             metrics.start();
