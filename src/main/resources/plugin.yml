@@ -1,6 +1,6 @@
 name: WhoWas
 main: org.aaron1011.whowas.impl.bukkit.BukkitPlugin
-version: 1.0.0
+version: 1.0.2
 author: Aaron1011
 
 commands:

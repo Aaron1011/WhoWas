@@ -7,7 +7,7 @@ import org.spongepowered.api.util.event.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-@Plugin(id = "whowas", name = "Who Was", version = "1.0.0")
+@Plugin(id = "whowas", name = "Who Was", version = "1.0.2")
 public class SpongePlugin {
 
     @Subscribe
