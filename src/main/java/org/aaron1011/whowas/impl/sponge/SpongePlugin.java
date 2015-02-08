@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-@Plugin(id = "whowas", name = "Who Was", version = "1.0.2")
+@Plugin(id = "whowas", name = "Who Was", version = "1.1.0")
 public class SpongePlugin {
 
     @Inject
