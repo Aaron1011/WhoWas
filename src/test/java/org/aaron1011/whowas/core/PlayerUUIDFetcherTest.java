@@ -1,6 +1,7 @@
 package org.aaron1011.whowas.core;
 
-import com.google.common.base.Optional;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
+import org.aaron1011.whowas.core.uuid.PlayerUUIDFetcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
@@ -8,8 +9,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.ByteArrayInputStream;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import static org.powermock.api.mockito.PowerMockito.*;

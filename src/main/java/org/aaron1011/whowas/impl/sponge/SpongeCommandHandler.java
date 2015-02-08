@@ -1,10 +1,11 @@
 package org.aaron1011.whowas.impl.sponge;
 
 import com.google.common.base.Optional;
-import org.aaron1011.whowas.core.PlayerNameHistory;
-import org.aaron1011.whowas.core.PlayerNameHistoryFetcher;
-import org.aaron1011.whowas.core.PlayerUUIDFetcher;
-import org.aaron1011.whowas.core.TimestampedName;
+import org.aaron1011.whowas.core.formatter.WhoWasFormatter;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistory;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
+import org.aaron1011.whowas.core.uuid.PlayerUUIDFetcher;
+import org.aaron1011.whowas.core.namehistory.TimestampedName;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.entity.player.Player;
 import org.spongepowered.api.text.format.TextColors;
@@ -15,7 +16,6 @@ import org.spongepowered.api.util.command.CommandCallable;
 import org.spongepowered.api.util.command.CommandException;
 import org.spongepowered.api.util.command.CommandSource;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -31,12 +31,9 @@ public class SpongeCommandHandler implements CommandCallable {
     @Override
     public boolean call(CommandSource source, String arguments, List<String> parents) {
         String[] args = arguments.split(" ", -1);
-        System.out.println("Args: " + args.toString());
 
         if (arguments.equals("")) {
-            MessageBuilder builder = Messages.builder(getUsage());
-            builder = builder.color(TextColors.RED);
-            source.sendMessage(builder.build());
+            source.sendMessage(WhoWasFormatter.getUsage());
         } else {
             Optional<Player> player = this.game.getServer().get().getPlayer(args[0]);
             UUID uuid;

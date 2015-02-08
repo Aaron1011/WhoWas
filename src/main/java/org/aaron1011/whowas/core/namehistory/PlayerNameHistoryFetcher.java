@@ -1,4 +1,4 @@
-package org.aaron1011.whowas.core;
+package org.aaron1011.whowas.core.namehistory;
 
 import com.google.common.base.Optional;
 import com.google.common.cache.CacheBuilder;

@@ -1,19 +1,15 @@
 package org.aaron1011.whowas.impl.bukkit.command;
 
 import com.google.common.base.Optional;
-import org.aaron1011.whowas.core.PlayerNameHistory;
-import org.aaron1011.whowas.core.PlayerNameHistoryFetcher;
-import org.aaron1011.whowas.core.PlayerUUIDFetcher;
-import org.aaron1011.whowas.core.TimestampedName;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistory;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
+import org.aaron1011.whowas.core.uuid.PlayerUUIDFetcher;
+import org.aaron1011.whowas.core.namehistory.TimestampedName;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.spongepowered.api.text.format.TextColors;
-import org.spongepowered.api.text.message.Message;
-import org.spongepowered.api.text.message.MessageBuilder;
-import org.spongepowered.api.text.message.Messages;
 
 import java.util.UUID;
 

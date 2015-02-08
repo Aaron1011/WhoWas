@@ -1,6 +1,9 @@
 package org.aaron1011.whowas.core;
 
 import com.google.common.base.Optional;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistory;
+import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
+import org.aaron1011.whowas.core.namehistory.TimestampedName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;

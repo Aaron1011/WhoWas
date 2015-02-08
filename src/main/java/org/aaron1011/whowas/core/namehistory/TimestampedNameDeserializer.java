@@ -1,6 +1,7 @@
-package org.aaron1011.whowas.core;
+package org.aaron1011.whowas.core.namehistory;
 
 import com.google.gson.*;
+import org.aaron1011.whowas.core.namehistory.TimestampedName;
 
 import java.lang.reflect.Type;
 import java.util.Date;

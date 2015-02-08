@@ -1,4 +1,4 @@
-package org.aaron1011.whowas.core;
+package org.aaron1011.whowas.core.namehistory;
 
 import java.util.List;
 import java.util.UUID;

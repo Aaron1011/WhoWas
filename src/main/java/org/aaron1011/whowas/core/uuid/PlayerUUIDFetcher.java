@@ -1,4 +1,4 @@
-package org.aaron1011.whowas.core;
+package org.aaron1011.whowas.core.uuid;
 
 import com.google.common.base.Optional;
 import com.google.common.cache.CacheBuilder;
@@ -13,10 +13,8 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ConcurrentModificationException;
 import java.util.UUID;
 import java.util.concurrent.*;
 
