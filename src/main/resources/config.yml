@@ -1,3 +1,5 @@
 update:
   checkForUpdates: true
   autoInstallUpdates: true
+
+exactLookup: true

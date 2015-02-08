@@ -20,7 +20,7 @@ public class BukkitPlugin extends JavaPlugin {
         } catch (IOException e) {
             // Failed to submit the stats :-(
         }
-        getCommand("whoWas").setExecutor(new WhoWasCommand());
+        getCommand("whoWas").setExecutor(new WhoWasCommand(this));
         // Waiting for plugin id
         runUpdater();
     }

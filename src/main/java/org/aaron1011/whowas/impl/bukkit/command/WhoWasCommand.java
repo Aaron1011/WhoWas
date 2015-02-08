@@ -5,15 +5,24 @@ import org.aaron1011.whowas.core.namehistory.PlayerNameHistory;
 import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
 import org.aaron1011.whowas.core.uuid.PlayerUUIDFetcher;
 import org.aaron1011.whowas.core.namehistory.TimestampedName;
+import org.aaron1011.whowas.impl.bukkit.BukkitPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
 
 public class WhoWasCommand implements CommandExecutor {
+
+    private final JavaPlugin plugin;
+
+    public WhoWasCommand(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -21,7 +30,13 @@ public class WhoWasCommand implements CommandExecutor {
             return false;
         }
 
-        Player player = sender.getServer().getPlayer(args[0]);
+        Player player;
+        if (this.plugin.getConfig().getBoolean("exactLookup", true)) {
+            player = sender.getServer().getPlayerExact(args[0]);
+        } else {
+            player = sender.getServer().getPlayer(args[0]);
+        }
+
         UUID uuid;
         if (player == null) {
             try {
