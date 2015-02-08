@@ -48,7 +48,7 @@ public class WhoWasCommand implements CommandExecutor {
                     return true;
                 }
             } catch (Exception e) {
-                sender.sendMessage(String.format("Error occurred when fetching UUID for %s: " , args[0]) + e.getMessage());
+                sender.sendMessage(String.format("Error occurred when fetching UUID for %s: ", args[0]) + e.getMessage());
                 return true;
             }
         } else {
@@ -69,19 +69,23 @@ public class WhoWasCommand implements CommandExecutor {
             return true;
         }
 
-
         sender.sendMessage(ChatColor.BLUE + "Name history:");
-        for (TimestampedName name: history.getNames()) {
-            StringBuilder builder = new StringBuilder(name.getName() + ": ");
+        if (history.getNames().size() == 1) {
+            TimestampedName name = history.getNames().get(0);
+            sender.sendMessage(name.getName() + ": " + ChatColor.GOLD + "In use");
+        } else {
+            for (TimestampedName name : history.getNames()) {
+                StringBuilder builder = new StringBuilder(name.getName() + ": ");
 
-            if (name.getChangedToAt().isPresent()) {
-                builder.append(ChatColor.GREEN + "Changed to at " + name.getChangedToAt().get().toString());
-            } else {
-                builder.append(ChatColor.GOLD + "In use");
+                if (name.getChangedToAt().isPresent()) {
+                    builder.append(ChatColor.GREEN + "Changed to at " + name.getChangedToAt().get().toString());
+                } else {
+                    builder.append(ChatColor.GOLD + "First name");
+                }
+
+                sender.sendMessage(builder.toString());
             }
-
-            sender.sendMessage(builder.toString());
+            return true;
         }
-        return true;
     }
 }
