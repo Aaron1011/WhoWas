@@ -1,6 +1,7 @@
 package org.aaron1011.whowas.impl.bukkit.command;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.Lists;
 import org.aaron1011.whowas.core.namehistory.PlayerNameHistory;
 import org.aaron1011.whowas.core.namehistory.PlayerNameHistoryFetcher;
 import org.aaron1011.whowas.core.uuid.PlayerUUIDFetcher;
@@ -74,7 +75,7 @@ public class WhoWasCommand implements CommandExecutor {
             TimestampedName name = history.getNames().get(0);
             sender.sendMessage(name.getName() + ": " + ChatColor.GOLD + "In use");
         } else {
-            for (TimestampedName name : history.getNames()) {
+            for (TimestampedName name : Lists.reverse(history.getNames())) {
                 StringBuilder builder = new StringBuilder(name.getName() + ": ");
 
                 if (name.getChangedToAt().isPresent()) {
