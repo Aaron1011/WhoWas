@@ -42,13 +42,13 @@ public class BukkitPlugin extends JavaPlugin {
                     getLogger().severe("An error occurred downloading the update.");
                     break;
                 case UPDATE_AVAILABLE:
-                    getLogger().warning("An update for InventoryBomb is available to download on Bukkit Dev");
+                    getLogger().warning("An update for WhoWas is available to download on Bukkit Dev");
                     break;
                 case NO_UPDATE:
-                    getLogger().info("InventoryBomb is up to date!");
+                    getLogger().info("WhoWas is up to date!");
                     break;
                 case SUCCESS:
-                    getLogger().info("InventoryBomb has been successfully updated. Restart the server to use the new version");
+                    getLogger().info("WhoWas has been successfully updated. Restart the server to use the new version");
                     break;
                 default:
             }
