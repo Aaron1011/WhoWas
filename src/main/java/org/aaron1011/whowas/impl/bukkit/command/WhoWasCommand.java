@@ -86,7 +86,7 @@ public class WhoWasCommand implements CommandExecutor {
 
                 sender.sendMessage(builder.toString());
             }
-            return true;
         }
+        return true;
     }
 }
