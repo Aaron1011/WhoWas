@@ -1,9 +1,10 @@
 sudo: false
 
 language: java
-install: pip install dropbox
+install: 
+ - mkvirtualenv whowas
+ - pip install dropbox
 script: gradle
-
 jdk:
   - oraclejdk8
   - oraclejdk7
