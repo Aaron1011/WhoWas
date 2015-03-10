@@ -1,9 +1,5 @@
-sudo: false
-
 language: java
-install: 
- - mkvirtualenv whowas
- - pip install dropbox
+install: sudo pip install dropbox
 script: gradle
 jdk:
   - oraclejdk8
@@ -16,7 +12,3 @@ env:
   - secure: "XjjaV6eGeHMyvRsOGOsSgN5ycJLUtC/51KGAnqmq55I2Y8p5NzeXnHEiblLPwqzReNYuhDvcikbJbEepknniJciYlf8Wa3jmmz9clKkiTDMZlwHEuPCQn1241jA0yLsY79Od3FXRe09kT9iI6zgVWbVWEDpwOiw2i5iNJg+rzGI="
  
 after_success: if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_JDK_VERSION" == "openjdk7" ]]; then echo "Uploading...";python upload_artifact.py; fi
-
-caches:
-  directories:
-    - $HOME/.gradle/caches/minecraft
