@@ -1,7 +1,7 @@
 sudo: false
 
 language: java
-install: sudo pip install dropbox
+install: pip install dropbox
 script: gradle
 
 jdk:
