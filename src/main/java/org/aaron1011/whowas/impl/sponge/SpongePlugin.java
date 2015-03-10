@@ -30,27 +30,10 @@ public class SpongePlugin {
     }
 
     private void registerCommands(ServerStartedEvent event) {
-        System.out.println("Plugin started!");
-        System.out.println("Config dir: " + configDir.getAbsolutePath());
         List<String> aliases = new ArrayList<String>();
         aliases.add("whoWas");
         aliases.add("ww");
 
-        try {
-            event.getGame().getCommandDispatcher().register(this, new SpongeCommandHandler(event.getGame()), aliases);
-        } catch (Throwable t) {
-            System.out.println("Oops!");
-            t.printStackTrace();
-        }
-
-        // The Forge impl doesn't have any of this implemented yet...
-
-        /**
-        System.out.println("Getting service!");
-        ConfigService service = event.getGame().getServiceManager().provideUnchecked(ConfigService.class);
-        System.out.println("File: " + service.getPluginConfig(this));
-        Logger logger = event.getGame().getPluginManager().getLogger(event.getGame().getPluginManager().fromInstance(this).get());
-        logger.debug("Hello from logger!");
-         **/
+        event.getGame().getCommandDispatcher().register(this, new SpongeCommandHandler(event.getGame()), aliases);
     }
 }
